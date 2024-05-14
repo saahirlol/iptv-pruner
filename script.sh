@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Function to prompt the user for top station call signs
-read -p "Enter top station call signs (separated by spaces): " -a top_stations
+
 
 # Input and output file names
 input_file="list.m3u"
@@ -13,6 +13,7 @@ filtered_epg_file="update.xml"
 if [ -f "$output_file" ]; then
   echo "Existing $output_file found. Skipping M3U update."
 else
+  read -p "Enter top station call signs (separated by spaces): " -a top_stations
   # Start the new M3U file with the header
   echo "#EXTM3U" > "$output_file"
 
