@@ -50,6 +50,9 @@ if [[ $proceed != "y" ]]; then
   exit 0
 fi
 
+# Insert line breaks between </channel><channel> tags in the EPG file if needed
+sed -i 's@</channel><channel>@</channel>\n<channel>@g' "$epg_file"
+
 # Create a temporary file to store filtered EPG
 temp_file=$(mktemp)
 
